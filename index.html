@@ -19,16 +19,38 @@
                 </div>
                 <div class="col-6">
                     <h3>Your Points</h3>
-                    <h4 class = "playerPoints">???</h4>
+                    <h4 class = "playerPoints">0</h4>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-9">
-                <button class="crystal" data-value="1">Crystal</button>
-                <button class="crystal" data-value="2">Crystal</button>
-                <button class="crystal" data-value="3">Crystal</button>
-                <button class="crystal" data-value="4">Crystal</button>
+                <button class="crystal" data-value="1">
+                    <img alt="crystal-image" src="assets/images/crystal-image.png">
+                </button>
+                <button class="crystal" data-value="2">
+                    <img alt="crystal-image" src="assets/images/crystal-image.png">
+                </button>
+                <button class="crystal" data-value="3">
+                    <img alt="crystal-image" src="assets/images/crystal-image.png">
+                </button>
+                <button class="crystal" data-value="4">
+                    <img alt="crystal-image" src="assets/images/crystal-image.png">
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <h3>Wins</h3>
+                <h4 id="wins"></h4>
+            </div>
+            <div class="col-4">
+                <h3>Counter</h3>
+                <h4 id="counter"></h4>
+            </div>            
+            <div class="col-4">
+                <h3>Losses</h3>
+                <h4 id="losses"></h4>
             </div>
         </div>
     </div>
@@ -38,19 +60,45 @@
         var randomNumber = 19 + (Math.floor(Math.random() * 102));
         var randomPoints = 1 + (Math.floor(Math.random() * 12));
         var playerPoints = randomPoints;
+        var wins = 0;
+        var losses = 0;
+        var counter = 0;
 //display code
         $(".randomNumber").text(randomNumber);
-        
-
-//
-        
+        $("#wins").text(wins);
+        $("#losses").text(losses);
+        $("#counter").text(counter);
 
         $('.crystal').on('click', function () {
 //DONT TOUCH THIS, IT WORKS PERFRECTLY
+            counter++;
+            $("#counter").text(counter);
             var button = $(this);
             button.data('value', randomPoints);
             playerPoints = playerPoints + randomPoints;
             $(".playerPoints").text(playerPoints);
+            randomPoints = 1 + (Math.floor(Math.random() * 12));
+//
+            if(playerPoints > randomNumber){
+                playerPoints = 0;
+                $(".playerPoints").text(playerPoints);
+                counter = 0;
+                $("#counter").text(counter);
+                losses++;
+                randomNumber = 19 + (Math.floor(Math.random() * 102));
+                $(".randomNumber").text(randomNumber);
+                $("#losses").text(losses);
+            }
+            if(playerPoints == randomNumber){
+                playerPoints = 0;
+                $(".playerPoints").text(playerPoints);
+                counter = 0;
+                $("#counter").text(counter);
+                wins++; 
+                randomNumber = 19 + (Math.floor(Math.random() * 102));
+                $(".randomNumber").text(randomNumber);
+                $("#wins").text(wins);
+            }
         })
         
 //need to figure out how to show that the player points are adding together

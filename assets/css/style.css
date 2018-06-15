@@ -1,9 +1,14 @@
+
 button {
-    color: teal;
-    background-color: teal;
+    border: none;
+    
+}
+img {
+    height: 60px;
+    width: 60px;
 }
 
-.col-9, .col-6 {
-    margin: 10% auto;
+.col-9, .col-6, .col-4 {
+    margin: 5% auto;
     text-align: center;
 }
