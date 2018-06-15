@@ -1,0 +1,9 @@
+button {
+    color: teal;
+    background-color: teal;
+}
+
+.col-9, .col-6 {
+    margin: 10% auto;
+    text-align: center;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unit-4-Game</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Random Number</h3>
+                    <h4 class = "randomNumber">???</h4>
+                </div>
+                <div class="col-6">
+                    <h3>Your Points</h3>
+                    <h4 class = "playerPoints">???</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <button class="crystal" data-value="1">Crystal</button>
+                <button class="crystal" data-value="2">Crystal</button>
+                <button class="crystal" data-value="3">Crystal</button>
+                <button class="crystal" data-value="4">Crystal</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        var randomNumber = 19 + (Math.floor(Math.random() * 102));
+        var randomPoints = 1 + (Math.floor(Math.random() * 12));
+        var playerPoints = randomPoints;
+//display code
+        $(".randomNumber").text(randomNumber);
+        
+
+//
+        
+
+        $('.crystal').on('click', function () {
+//DONT TOUCH THIS, IT WORKS PERFRECTLY
+            var button = $(this);
+            button.data('value', randomPoints);
+            playerPoints = playerPoints + randomPoints;
+            $(".playerPoints").text(playerPoints);
+        })
+        
+//need to figure out how to show that the player points are adding together
+        
+        
+    </script>
+</body>
+</html>
